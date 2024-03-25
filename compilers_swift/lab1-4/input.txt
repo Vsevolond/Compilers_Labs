@@ -1,0 +1,7 @@
+real a := 5
+longreal b1 := 45
+b2 := a >= b
+
+realvar := a :: some comment
+reallongreal <= b1 :: syntax error
+

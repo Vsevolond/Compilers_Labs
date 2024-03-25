@@ -1,0 +1,5 @@
+for f1 1 f
+fkkfjk          /* ident error */
+if m1
+f1gs m1gs m1f1  /* m1gs - ident error
+                multistring comment */

@@ -4,3 +4,6 @@ compilers_swift/DerivedData/
 compilers_go/.idea/
 .DS_Store
 */.DS_Store
+compilers_python/env/
+compilers_python/__pycache__/
+compilers_python/*/__pycache__/

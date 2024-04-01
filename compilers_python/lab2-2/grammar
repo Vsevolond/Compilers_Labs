@@ -1,0 +1,46 @@
+Program -> TYPE TypeDefs VAR VarDefs BEGIN Statements END.
+
+VarDefs -> VarsDef | VarsDef VarDefs
+
+VarsDef -> VarNames : VarType;
+
+VarNames -> VARNAME | VARNAME, VarNames
+
+VarChain -> VARNAME | VARNAME.VarChain
+
+VARNAME = [a-z][A-Za-z0-9]*
+
+VarType -> Type | POINTER TO Type
+
+Type -> INTEGER | REAL | BOOLEAN | TYPENAME
+
+TypeDefs -> TypeDef | TypeDef TypeDefs
+
+TypeDef -> TypeCommonDef | TypeExtendDef
+
+TypeCommonDef -> TYPENAME = RECORD VarDefs END;
+
+TypeExtendDef -> TYPENAME = RECORD(Type) VarDefs END;
+
+TYPENAME = [A-Z][A-Za-z0-9]*
+
+Statements -> Statement | Statement Statements
+Statement -> VarChain := Expr;
+	   | VARNAME^ := VarChain;
+	   | NEW(VARNAME);
+	   | IF Expr THEN Statements ELSE Statements END;
+	   | WHILE Expr DO Statements END;
+
+Expr -> ArithmExpr
+      | ArithmExpr CmpOp ArithmExpr
+CmpOp -> < | > | <= | >= | # | =
+
+ArithmExpr -> Term | + Term | - Term | ArithmExpr AddOp Term
+AddOp -> + | - | OR
+
+Term -> Factor | Term MulOp Factor
+MulOp -> * | / | DIV | MOD | AND
+
+Factor -> NOT Factor | Const | VarChain | ( Expr )
+
+Const -> INT_CONST | REAL_CONST | TRUE | FALSE

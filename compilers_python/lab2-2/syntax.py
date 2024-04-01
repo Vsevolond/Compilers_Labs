@@ -27,10 +27,10 @@ NTerm, NFactor, NConst = map(pe.NonTerminal, 'Term Factor Const'.split())
 
 NProgram |= KW_TYPE, NTypeDefs, KW_VAR, NVarDefs, KW_BEGIN, NStatements, KW_END, '.', Program
 
-NVarDefs |= NVarsDef, NVarDefs, lambda vars_def, var_defs: [vars_def] + var_defs
-NVarDefs |= NVarsDef, lambda vars_def: [vars_def]
+NVarDefs |= NVarsDef, NVarDefs, lambda vars_def, var_defs: vars_def + var_defs
+NVarDefs |= lambda: []
 
-NVarsDef |= NVarNames, ':', NVarType, ';', lambda var_names, var_type: VarsDef(var_names, var_type)
+NVarsDef |= NVarNames, ':', NVarType, ';', lambda var_names, var_type: list(map(lambda var_name: VarDef(var_name, var_type), var_names))
 
 NVarNames |= VARNAME, ',', NVarNames, lambda var_name, var_names: [var_name] + var_names
 NVarNames |= VARNAME, lambda var_name: [var_name]
@@ -48,7 +48,7 @@ NType |= KW_BOOLEAN, lambda: GlobalType.Boolean
 NType |= TYPENAME, lambda type_name: Type(TypeKind.Local, type_name)
 
 NTypeDefs |= NTypeDef, NTypeDefs, lambda type_def, type_defs: [type_def] + type_defs
-NTypeDefs |= NTypeDef, lambda type_def: [type_def]
+NTypeDefs |= lambda: []
 
 NTypeDef |= NTypeCommonDef
 NTypeDef |= NTypeExtendDef
@@ -71,8 +71,11 @@ NStatement |= KW_WHILE, NExpr, KW_DO, NStatements, KW_END, ';', WhileStatement
 NExpr |= NArithmExpr
 NExpr |= NArithmExpr, NCmpOp, NArithmExpr, BinOpExpr
 
+def make_op_lambda(op):
+    return lambda: op
+
 for op in ('>', '<', '>=', '<=', '=', '#'):
-    NCmpOp |= op, lambda: op
+    NCmpOp |= op, make_op_lambda(op)
 
 NArithmExpr |= NTerm
 NArithmExpr |= '+', NTerm, lambda term: UnOpExpr('+', term)

@@ -24,15 +24,15 @@ class VarType:
     is_pointer: bool
 
 @dataclass
-class VarsDef:
-    names: list[str]
+class VarDef:
+    name: str
     type: VarType
 
 @dataclass
 class TypeDef:
     name: str
     parent_type: Optional[Type]
-    varDefs: list[VarsDef]
+    var_defs: list[VarDef]
 
 class Statement(abc.ABC):
     pass
@@ -40,7 +40,7 @@ class Statement(abc.ABC):
 @dataclass
 class Program:
     type_defs: list[TypeDef]
-    var_defs: list[VarsDef]
+    var_defs: list[VarDef]
     statements: list[Statement]
 
 class Expr(abc.ABC):

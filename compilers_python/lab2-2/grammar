@@ -1,6 +1,6 @@
 Program -> TYPE TypeDefs VAR VarDefs BEGIN Statements END.
 
-VarDefs -> VarsDef | VarsDef VarDefs
+VarDefs -> VarsDef VarDefs | ε
 
 VarsDef -> VarNames : VarType;
 
@@ -14,7 +14,7 @@ VarType -> Type | POINTER TO Type
 
 Type -> INTEGER | REAL | BOOLEAN | TYPENAME
 
-TypeDefs -> TypeDef | TypeDef TypeDefs
+TypeDefs -> TypeDef TypeDefs | ε
 
 TypeDef -> TypeCommonDef | TypeExtendDef
 

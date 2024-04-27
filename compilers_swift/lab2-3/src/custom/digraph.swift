@@ -1,36 +1,48 @@
 import Foundation
 
-final class Node: Hashable {
+final class Node {
     
-    private let id: String
-    private let label: Int
+    let id: String
+    let name: String
+    var parent: Node?
+    
+    var offset: String {
+        guard let parent else { return .empty }
+        return parent.offset + "    "
+    }
+    
     private var childs: Set<Node> = .init()
     
-    var name: String { "\(id)\(label)" }
-    var property: String { "\(name) [label=\"\(id) (\(label))\"]" }
-    var selfEdges: [String] { childs.map { "\(name) -> \($0.name)" } }
-    
-    var properties: Set<String> {
-        childs.map { $0.properties }.unionAll().union([property])
-    }
-    var edges: Set<String> {
-        childs.map { $0.edges }.unionAll().union(selfEdges)
-    }
-    
-    init(_ id: String, _ label: Int) {
-        self.id = id
-        self.label = label
+    init(_ name: String) {
+        self.id = UUID().uuidString
+        self.name = name
     }
     
     func addChild(_ node: Node) {
         childs.insert(node)
     }
     
-    static func == (lhs: Node, rhs: Node) -> Bool { lhs.id == rhs.id && lhs.label == rhs.label }
+    func printNode() {
+        if childs.isEmpty {
+            print(offset, name, separator: .empty)
+            
+        } else {
+            print(offset, name, ":", separator: .empty)
+        }
+        
+        for child in childs {
+            child.printNode()
+        }
+    }
+}
+
+extension Node: Hashable {
+    
+    static func == (lhs: Node, rhs: Node) -> Bool { lhs.id == rhs.id && lhs.name == rhs.name }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
-        hasher.combine(label)
+        hasher.combine(name)
     }
 }
 
@@ -38,48 +50,31 @@ final class Digraph {
     
     private var root: Node?
     private var nodesByID: [String : Node] = [:]
-    private var nodesCountByGrammarID: [String : Int] = [:]
     
     func printGraph() {
         guard let root else { return }
-        let properties = root.properties
-        let edges = root.edges
-        
-        properties.forEach { property in
-            print(property)
-        }
-        
-        edges.forEach { edge in
-            print(edge)
-        }
+        root.printNode()
     }
     
-    func set(root rootID: String) -> String {
-        let num = (nodesCountByGrammarID[rootID] ?? 0) + 1
-        let graphID: String = rootID + "\(num)"
-        
-        let node = Node(rootID, num)
-        nodesByID[graphID] = node
-        nodesCountByGrammarID[rootID] = num
+    func set(root name: String) -> String {
+        let node = Node(name)
+        nodesByID[node.id] = node
         root = node
         
-        return graphID
+        return node.id
     }
     
-    func add(to rootID: String, nodes: [String]) -> [String] {
-        guard let root = nodesByID[rootID] else { fatalError("there is no node with id: \(rootID)") }
+    func add(toNode id: String, nodes: [String]) -> [String] {
+        guard let node = nodesByID[id] else { fatalError("there is no node with id: \(id)") }
         var nodesID: [String] = []
         
-        for nodeID in nodes {
-            let num = (nodesCountByGrammarID[nodeID] ?? 0) + 1
-            let graphID: String = nodeID + "\(num)"
+        for name in nodes {
+            let child = Node(name)
+            child.parent = node
+            nodesByID[child.id] = child
             
-            let node = Node(nodeID, num)
-            nodesByID[graphID] = node
-            nodesCountByGrammarID[nodeID] = num
-            
-            root.addChild(node)
-            nodesID.append(graphID)
+            node.addChild(child)
+            nodesID.append(child.id)
         }
         
         return nodesID

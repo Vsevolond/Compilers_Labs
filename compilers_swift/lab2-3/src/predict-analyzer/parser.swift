@@ -72,7 +72,7 @@ final class Parser {
                 let disclosure = predictTable.get(for: nonTerm, by: tokenTerm)
                 stack.pop()
                 
-                let graphIDs = digraph.add(to: elemID, nodes: disclosure.map { $0.id })
+                let graphIDs = digraph.add(toNode: elemID, nodes: disclosure.map { $0.id })
                 guard disclosure != [.eps] else { continue }
                 
                 let newElements: [(graphID: String, elem: GrammarElem)] = disclosure.enumerated().map { index, elem in

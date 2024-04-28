@@ -1,0 +1,15 @@
+{
+  "originHash" : "8d271f4a69ca8325c57984b0c37c03bed388d321648825b3c46cc81a2cd6a8d4",
+  "pins" : [
+    {
+      "identity" : "treeprinter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cliss/TreePrinter.git",
+      "state" : {
+        "revision" : "ca462fcb54b67548ef401bb8b594420fe5f45242",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 3
+}

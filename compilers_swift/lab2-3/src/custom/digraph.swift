@@ -1,17 +1,17 @@
 import Foundation
+import TreePrinter
 
-final class Node {
+final class Node: TreeRepresentable {
     
     let id: String
     let name: String
     var parent: Node?
+    var subnodes: [Node] = []
     
     var offset: String {
         guard let parent else { return .empty }
         return parent.offset + "    "
     }
-    
-    private var childs: Set<Node> = .init()
     
     init(_ name: String) {
         self.id = UUID().uuidString
@@ -19,18 +19,18 @@ final class Node {
     }
     
     func addChild(_ node: Node) {
-        childs.insert(node)
+        subnodes.append(node)
     }
     
     func printNode() {
-        if childs.isEmpty {
+        if subnodes.isEmpty {
             print(offset, name, separator: .empty)
             
         } else {
             print(offset, name, ":", separator: .empty)
         }
         
-        for child in childs {
+        for child in subnodes {
             child.printNode()
         }
     }
@@ -53,7 +53,7 @@ final class Digraph {
     
     func printGraph() {
         guard let root else { return }
-        root.printNode()
+        print(TreePrinter.printTree(root: root))
     }
     
     func set(root name: String) -> String {

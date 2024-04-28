@@ -40,6 +40,7 @@
 		D3AEB0FB2BC8659300AC8A71 /* scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AEB0FA2BC8659300AC8A71 /* scanner.swift */; };
 		D3AEB0FD2BC865AF00AC8A71 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AEB0FC2BC865AF00AC8A71 /* extensions.swift */; };
 		D3AEB0FF2BC8660000AC8A71 /* compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AEB0FE2BC8660000AC8A71 /* compiler.swift */; };
+		D3CF699D2BDE4DA500531887 /* TreePrinter in Frameworks */ = {isa = PBXBuildFile; productRef = D3CF699C2BDE4DA500531887 /* TreePrinter */; };
 		D3DA1BC12BD97EF90044B620 /* unique-queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA1BC02BD97EF90044B620 /* unique-queue.swift */; };
 		D3DA1BC32BDABA220044B620 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA1BC22BDABA220044B620 /* stack.swift */; };
 		D3DA1BC52BDABEDE0044B620 /* digraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA1BC42BDABEDE0044B620 /* digraph.swift */; };
@@ -86,9 +87,7 @@
 
 /* Begin PBXFileReference section */
 		D321C5902BCE9146003F65BC /* parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parser.swift; sourceTree = "<group>"; };
-		D3264B1F2BC4414F00C9E001 /* lab2-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab2-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab2-3"; sourceTree = "<absolute>"; };
 		D3264B212BC4414F00C9E001 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		D32DBC2D2B9F4D6D00649C95 /* lab1-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-4"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-4"; sourceTree = "<absolute>"; };
 		D32DBC2F2B9F4D6D00649C95 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D32DBC342B9F5D6B00649C95 /* fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fragment.swift; sourceTree = "<group>"; };
 		D32DBC362B9F5D8400649C95 /* position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = position.swift; sourceTree = "<group>"; };
@@ -101,7 +100,6 @@
 		D32DBC452B9F5F3500649C95 /* fsm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fsm.swift; sourceTree = "<group>"; };
 		D32DBC472B9F5F5300649C95 /* fsm-state.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "fsm-state.swift"; sourceTree = "<group>"; };
 		D32DBC492B9F61B100649C95 /* fsm-transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "fsm-transition.swift"; sourceTree = "<group>"; };
-		D33E1C172B96177F0054A741 /* lab1-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-3"; sourceTree = "<absolute>"; };
 		D33E1C192B96177F0054A741 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D33E1C1E2B96178E0054A741 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
 		D33E1C1F2B961B240054A741 /* fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fragment.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 		D33E1C2D2B961CF10054A741 /* scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanner.swift; sourceTree = "<group>"; };
 		D33E1C2F2B961D570054A741 /* compiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compiler.swift; sourceTree = "<group>"; };
 		D33E1C352B9871E70054A741 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
-		D345F87E2B8CDB42004CC315 /* lab1-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-2"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-2"; sourceTree = "<absolute>"; };
 		D345F8802B8CDB42004CC315 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D345F8852B8CDCC2004CC315 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
 		D39E97702BC9537600FEADB2 /* grammar */ = {isa = PBXFileReference; lastKnownFileType = text; path = grammar; sourceTree = "<group>"; };
@@ -126,6 +123,10 @@
 		D3AEB0FA2BC8659300AC8A71 /* scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanner.swift; sourceTree = "<group>"; };
 		D3AEB0FC2BC865AF00AC8A71 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D3AEB0FE2BC8660000AC8A71 /* compiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compiler.swift; sourceTree = "<group>"; };
+		D3CF69962BDE4D6800531887 /* lab1-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-2"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-2"; sourceTree = "<absolute>"; };
+		D3CF69972BDE4D6800531887 /* lab1-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-3"; sourceTree = "<absolute>"; };
+		D3CF69982BDE4D6800531887 /* lab1-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-4"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-4"; sourceTree = "<absolute>"; };
+		D3CF69992BDE4D6800531887 /* lab2-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab2-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab2-3"; sourceTree = "<absolute>"; };
 		D3DA1BC02BD97EF90044B620 /* unique-queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unique-queue.swift"; sourceTree = "<group>"; };
 		D3DA1BC22BDABA220044B620 /* stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 		D3DA1BC42BDABEDE0044B620 /* digraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digraph.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CF699D2BDE4DA500531887 /* TreePrinter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +264,15 @@
 				D33E1C182B96177F0054A741 /* lab1-3 */,
 				D32DBC2E2B9F4D6D00649C95 /* lab1-4 */,
 				D3264B202BC4414F00C9E001 /* lab2-3 */,
+				D3CF699B2BDE4DA500531887 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		D3CF699B2BDE4DA500531887 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D3DA1BBF2BD97EE10044B620 /* custom */ = {
@@ -292,9 +302,10 @@
 			);
 			name = "lab2-3";
 			packageProductDependencies = (
+				D3CF699C2BDE4DA500531887 /* TreePrinter */,
 			);
 			productName = "lab2-3";
-			productReference = D3264B1F2BC4414F00C9E001 /* lab2-3 */;
+			productReference = D3CF69992BDE4D6800531887 /* lab2-3 */;
 			productType = "com.apple.product-type.tool";
 		};
 		D32DBC2C2B9F4D6D00649C95 /* lab1-4 */ = {
@@ -311,7 +322,7 @@
 			);
 			name = "lab1-4";
 			productName = "lab1-4";
-			productReference = D32DBC2D2B9F4D6D00649C95 /* lab1-4 */;
+			productReference = D3CF69982BDE4D6800531887 /* lab1-4 */;
 			productType = "com.apple.product-type.tool";
 		};
 		D33E1C162B96177F0054A741 /* lab1-3 */ = {
@@ -328,7 +339,7 @@
 			);
 			name = "lab1-3";
 			productName = "lab1-3";
-			productReference = D33E1C172B96177F0054A741 /* lab1-3 */;
+			productReference = D3CF69972BDE4D6800531887 /* lab1-3 */;
 			productType = "com.apple.product-type.tool";
 		};
 		D345F87D2B8CDB42004CC315 /* lab1-2 */ = {
@@ -345,7 +356,7 @@
 			);
 			name = "lab1-2";
 			productName = "lab1-2";
-			productReference = D345F87E2B8CDB42004CC315 /* lab1-2 */;
+			productReference = D3CF69962BDE4D6800531887 /* lab1-2 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -382,6 +393,7 @@
 			);
 			mainGroup = D3C3B5C22B853A900095E724;
 			packageReferences = (
+				D3CF699A2BDE4D9900531887 /* XCRemoteSwiftPackageReference "TreePrinter" */,
 			);
 			productRefGroup = D3C3B5C22B853A900095E724;
 			projectDirPath = "";
@@ -1048,6 +1060,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3CF699A2BDE4D9900531887 /* XCRemoteSwiftPackageReference "TreePrinter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cliss/TreePrinter.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3CF699C2BDE4DA500531887 /* TreePrinter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3CF699A2BDE4D9900531887 /* XCRemoteSwiftPackageReference "TreePrinter" */;
+			productName = TreePrinter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3C3B5C32B853A900095E724 /* Project object */;
 }

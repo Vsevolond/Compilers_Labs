@@ -12,79 +12,8 @@ final class Parser {
     private var currentIndex: Int = 0
     private var currentTerm: Term { .init(domain: tokens[currentIndex].tag) }
     
-    private var NProgram = NonTerm(id: "Program")
-    private var NVarDefs = NonTerm(id: "VarDefs")
-    private var NVarsDef = NonTerm(id: "VarsDef")
-    private var NVarNames = NonTerm(id: "VarNames")
-    private var NVarChain = NonTerm(id: "VarChain")
-    private var NVarType = NonTerm(id: "NVarType")
-    private var NType = NonTerm(id: "Type")
-    private var NTypeDefs = NonTerm(id: "TypeDefs")
-    private var NTypeDef = NonTerm(id: "TypeDef")
-    private var NParentType = NonTerm(id: "ParentType")
-    private var NStatements = NonTerm(id: "Statements")
-    private var NStatement = NonTerm(id: "Statement")
-    private var NEquation = NonTerm(id: "Equation")
-    private var NVarEquation = NonTerm(id: "VarEquation")
-    private var NPointerEquation = NonTerm(id: "PointerEquation")
-    private var NExpr = NonTerm(id: "Expr")
-    private var NCmpExpr = NonTerm(id: "CmpExpr")
-    private var NCmpOp = NonTerm(id: "CmpOp")
-    private var NArithmExpr = NonTerm(id: "ArithmExpr")
-    private var NAddExpr = NonTerm(id: "AddExpr")
-    private var NAddOp = NonTerm(id: "AddOp")
-    private var NTerm = NonTerm(id: "Term")
-    private var NMulExpr = NonTerm(id: "MulExpr")
-    private var NMulOp = NonTerm(id: "MulOp")
-    private var NFactor = NonTerm(id: "Factor")
-    private var NConst = NonTerm(id: "Const")
-    
     init(tokens: [Token]) {
         self.tokens = tokens
-        setupGrammar()
-    }
-    
-    private func setupGrammar() {
-        NProgram => [.type_kw, NTypeDefs, .var_kw, NVarDefs, .begin_kw, NStatements, .end_kw, .dot_sym]
-        
-        NVarDefs => [NVarsDef, NVarDefs] | .eps
-        NVarsDef => [.ident, NVarNames, .colon_sym, NVarType, .semicolon_sym]
-        NVarNames => [.comma_sym, .ident, NVarNames] | .eps
-        NVarChain => [.dot_sym, .ident, NVarChain] | .eps
-        NVarType => [.pointer_kw, .to_kw, NType] | NType
-        
-        NType => .integer_type | .real_type | .boolean_type | .local_type
-        NTypeDefs => [NTypeDef, NTypeDefs] | .eps
-        NTypeDef => [.local_type, .typeAssignment_op, .record_kw, NParentType, NVarDefs, .end_kw, .semicolon_sym]
-        NParentType => [.openBracket_sym, NType, .closeBracket_sym] | .eps
-        
-        NStatements => [NStatement, NStatements] | .eps
-        NStatement => [.ident, NEquation, .semicolon_sym] | 
-                      [.new_kw, .openBracket_sym, .ident, .closeBracket_sym, .semicolon_sym] |
-                      [.if_kw, NExpr, .then_kw, NStatements, .else_kw, NStatements, .end_kw, .semicolon_sym] |
-                      [.while_kw, NExpr, .do_kw, NStatements, .end_kw, .semicolon_sym]
-        
-        NEquation => NVarEquation | NPointerEquation
-        NVarEquation => [NVarChain, .varAssignment_op, NExpr]
-        NPointerEquation => [.dereference_op, .varAssignment_op, .ident, NVarChain]
-        
-        NExpr => [NArithmExpr, NCmpExpr]
-        
-        NCmpExpr => [NCmpOp, NArithmExpr] | .eps
-        NCmpOp => .less_op | .greater_op | .lessOrEqual_op | .greaterOrEqual_op | .notEqual_op | .equal_op
-        
-        NArithmExpr => [NTerm, NAddExpr]
-        
-        NAddExpr => [NAddOp, NArithmExpr] | .eps
-        NAddOp => .addition_op | .substraction_op | .or_op
-        
-        NTerm => [NFactor, NMulExpr]
-        
-        NMulExpr => [NMulOp, NTerm] | .eps
-        NMulOp => .multiplication_op | .division_op | .div_op | .mod_op | .and_op
-        
-        NFactor => [.not_op, NFactor] | NConst | [.ident, NVarChain] | [.openBracket_sym, NExpr, .closeBracket_sym]
-        NConst => .integer_const | .real_const | .boolean_const
     }
     
     func parse() throws { try Program() }
@@ -118,7 +47,7 @@ final class Parser {
     }
     
     private func VarDefs() throws {
-        guard NVarsDef.firstSet.contains(currentTerm) else { return }  // ???
+        guard currentTerm == .ident else { return }
         try VarsDef()
         try VarDefs()
     }
@@ -175,7 +104,7 @@ final class Parser {
     }
     
     private func TypeDefs() throws {
-        guard NTypeDef.firstSet.contains(currentTerm) else { return }  // ???
+        guard currentTerm == .local_type else { return }
         try TypeDef()
         try TypeDefs()
     }
@@ -209,7 +138,9 @@ final class Parser {
     }
     
     private func Statements() throws {
-        guard NStatement.firstSet.contains(currentTerm) else { return }
+        let possible: Set<Term> = [.ident, .new_kw, .if_kw, .while_kw]
+        
+        guard possible.contains(currentTerm) else { return }
         try Statement()
         try Statements()
     }
@@ -275,7 +206,7 @@ final class Parser {
     }
     
     private func Equation() throws {
-        if NVarEquation.firstSet.contains(currentTerm) {
+        if currentTerm == .dot_sym || currentTerm == .varAssignment_op {
             try VarEquation()
             
         } else {
@@ -309,7 +240,9 @@ final class Parser {
     }
     
     private func CmpExpr() throws {
-        guard NCmpOp.firstSet.contains(currentTerm) else { return }
+        let possible: Set<Term> = [.less_op, .lessOrEqual_op, .greater_op, .greaterOrEqual_op, .notEqual_op, .equal_op]
+        
+        guard possible.contains(currentTerm) else { return }
         try CmpOp()
         try ArithmExpr()
     }
@@ -327,7 +260,9 @@ final class Parser {
     }
     
     private func AddExpr() throws {
-        guard NAddOp.firstSet.contains(currentTerm) else { return }
+        let possible: Set<Term> = [.addition_op, .substraction_op, .or_op]
+        
+        guard possible.contains(currentTerm) else { return }
         try AddOp()
         try ArithmExpr()
     }
@@ -345,7 +280,9 @@ final class Parser {
     }
     
     private func MulExpr() throws {
-        guard NMulOp.firstSet.contains(currentTerm) else { return }
+        let possible: Set<Term> = [.multiplication_op, .division_op, .div_op, .mod_op, .and_op]
+        
+        guard possible.contains(currentTerm) else { return }
         try MulOp()
         try Term()
     }

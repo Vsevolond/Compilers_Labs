@@ -1,0 +1,47 @@
+Program -> type_kw TypeDefs var_kw VarDefs begin_kw Statements end_kw dot_sym .
+
+VarDefs -> VarsDef VarDefs | .
+
+VarsDef -> ident VarNames colon_sym VarType semicolon_sym .
+
+VarNames -> comma_sym ident VarNames | .
+
+VarChain -> dot_sym ident VarChain | .
+
+VarType -> Type | pointer_kw to_kw Type .
+
+Type -> integer_type | real_type | boolean_type | local_type .
+
+TypeDefs -> TypeDef TypeDefs | .
+
+TypeDef -> local_type typeAssignment_op record_kw ParentType VarDefs end_kw semicolon_sym .
+
+ParentType -> openbracket_sym Type closebracket_sym | .
+
+Statements -> Statement Statements | .
+
+Statement -> ident Equation semicolon_sym |
+             new_kw openbracket_sym ident closebracket_sym semicolon_sym |
+             if_kw Expr then_kw Statements else_kw Statements end_kw semicolon_sym |
+             while_kw Expr do_kw Statements end_kw semicolon_sym .
+
+Equation -> VarEquation | PointerEquation .
+VarEquation -> VarChain varAssignment_op Expr .
+PointerEquation -> dereference_op varAssignment_op ident VarChain .
+
+Expr -> ArithmExpr CmpExpr .
+CmpExpr -> CmpOp ArithmExpr | .
+
+CmpOp -> less_op | greater_op | lessOrEqual_op | greaterOrEqual_op | notEqual_op | equal_op .
+
+ArithmExpr -> Term AddExpr .
+AddExpr -> AddOp ArithmExpr | .
+AddOp -> addition_op | substraction_op | or_op .
+
+Term -> Factor MulExpr .
+MulExpr -> MulOp Term | .
+MulOp -> multiplication_op | division_op | div_op | mod_op | and_op .
+
+Factor -> not_op Factor | Const | ident VarChain | openbracket_sym Expr closebracket_sym .
+
+Const -> integer_const | real_const | boolean_const .

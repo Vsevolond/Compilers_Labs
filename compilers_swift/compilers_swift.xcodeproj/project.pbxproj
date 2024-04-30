@@ -29,6 +29,18 @@
 		D33E1C302B961D570054A741 /* compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33E1C2F2B961D570054A741 /* compiler.swift */; };
 		D33E1C362B9871E70054A741 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33E1C352B9871E70054A741 /* extensions.swift */; };
 		D345F8812B8CDB42004CC315 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D345F8802B8CDB42004CC315 /* main.swift */; };
+		D353181A2BDED00B00C13C46 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318192BDED00B00C13C46 /* main.swift */; };
+		D35318222BDFAA8200C13C46 /* domain-tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318212BDFAA8200C13C46 /* domain-tag.swift */; };
+		D35318242BDFBF4500C13C46 /* token.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318232BDFBF4500C13C46 /* token.swift */; };
+		D35318262BDFBF5800C13C46 /* position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318252BDFBF5800C13C46 /* position.swift */; };
+		D35318282BDFBF6500C13C46 /* fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318272BDFBF6500C13C46 /* fragment.swift */; };
+		D353182A2BDFBFA400C13C46 /* scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318292BDFBFA400C13C46 /* scanner.swift */; };
+		D353182C2BDFBFAB00C13C46 /* compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353182B2BDFBFAB00C13C46 /* compiler.swift */; };
+		D353182F2BDFC03B00C13C46 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353182E2BDFC03B00C13C46 /* extensions.swift */; };
+		D35318322BE0FCF200C13C46 /* parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318312BE0FCF200C13C46 /* parser.swift */; };
+		D35318342BE0FDE300C13C46 /* grammar-elem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318332BE0FDE300C13C46 /* grammar-elem.swift */; };
+		D35318362BE0FDF500C13C46 /* non-term.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318352BE0FDF500C13C46 /* non-term.swift */; };
+		D35318382BE0FE0400C13C46 /* term.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318372BE0FE0400C13C46 /* term.swift */; };
 		D39E97732BC9636400FEADB2 /* fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E97722BC9636400FEADB2 /* fragment.swift */; };
 		D39E97752BC9637B00FEADB2 /* position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E97742BC9637B00FEADB2 /* position.swift */; };
 		D39E97772BC964B400FEADB2 /* grammar-elem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E97762BC964B400FEADB2 /* grammar-elem.swift */; };
@@ -83,6 +95,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		D35318152BDED00B00C13C46 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +132,25 @@
 		D33E1C352B9871E70054A741 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D345F8802B8CDB42004CC315 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D345F8852B8CDCC2004CC315 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
+		D353180F2BDECFEB00C13C46 /* lab1-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-2"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-2"; sourceTree = "<absolute>"; };
+		D35318102BDECFEB00C13C46 /* lab1-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-3"; sourceTree = "<absolute>"; };
+		D35318112BDECFEB00C13C46 /* lab1-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-4"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-4"; sourceTree = "<absolute>"; };
+		D35318122BDECFEB00C13C46 /* lab2-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab2-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab2-3"; sourceTree = "<absolute>"; };
+		D35318172BDED00B00C13C46 /* lab2-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab2-4"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab2-4"; sourceTree = "<absolute>"; };
+		D35318192BDED00B00C13C46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D353181E2BDEEF0400C13C46 /* grammar */ = {isa = PBXFileReference; lastKnownFileType = text; path = grammar; sourceTree = "<group>"; };
+		D353181F2BDFA8A900C13C46 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
+		D35318212BDFAA8200C13C46 /* domain-tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "domain-tag.swift"; sourceTree = "<group>"; };
+		D35318232BDFBF4500C13C46 /* token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = token.swift; sourceTree = "<group>"; };
+		D35318252BDFBF5800C13C46 /* position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = position.swift; sourceTree = "<group>"; };
+		D35318272BDFBF6500C13C46 /* fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fragment.swift; sourceTree = "<group>"; };
+		D35318292BDFBFA400C13C46 /* scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanner.swift; sourceTree = "<group>"; };
+		D353182B2BDFBFAB00C13C46 /* compiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compiler.swift; sourceTree = "<group>"; };
+		D353182E2BDFC03B00C13C46 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		D35318312BE0FCF200C13C46 /* parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parser.swift; sourceTree = "<group>"; };
+		D35318332BE0FDE300C13C46 /* grammar-elem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "grammar-elem.swift"; sourceTree = "<group>"; };
+		D35318352BE0FDF500C13C46 /* non-term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "non-term.swift"; sourceTree = "<group>"; };
+		D35318372BE0FE0400C13C46 /* term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = term.swift; sourceTree = "<group>"; };
 		D39E97702BC9537600FEADB2 /* grammar */ = {isa = PBXFileReference; lastKnownFileType = text; path = grammar; sourceTree = "<group>"; };
 		D39E97722BC9636400FEADB2 /* fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fragment.swift; sourceTree = "<group>"; };
 		D39E97742BC9637B00FEADB2 /* position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = position.swift; sourceTree = "<group>"; };
@@ -123,10 +163,6 @@
 		D3AEB0FA2BC8659300AC8A71 /* scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanner.swift; sourceTree = "<group>"; };
 		D3AEB0FC2BC865AF00AC8A71 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D3AEB0FE2BC8660000AC8A71 /* compiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compiler.swift; sourceTree = "<group>"; };
-		D3CF69962BDE4D6800531887 /* lab1-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-2"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-2"; sourceTree = "<absolute>"; };
-		D3CF69972BDE4D6800531887 /* lab1-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-3"; sourceTree = "<absolute>"; };
-		D3CF69982BDE4D6800531887 /* lab1-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-4"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-4"; sourceTree = "<absolute>"; };
-		D3CF69992BDE4D6800531887 /* lab2-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab2-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab2-3"; sourceTree = "<absolute>"; };
 		D3DA1BC02BD97EF90044B620 /* unique-queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unique-queue.swift"; sourceTree = "<group>"; };
 		D3DA1BC22BDABA220044B620 /* stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 		D3DA1BC42BDABEDE0044B620 /* digraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digraph.swift; sourceTree = "<group>"; };
@@ -157,6 +193,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D345F87B2B8CDB42004CC315 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D35318142BDED00B00C13C46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,6 +275,51 @@
 			path = "lab1-2";
 			sourceTree = "<group>";
 		};
+		D35318182BDED00B00C13C46 /* lab2-4 */ = {
+			isa = PBXGroup;
+			children = (
+				D35318192BDED00B00C13C46 /* main.swift */,
+				D353181E2BDEEF0400C13C46 /* grammar */,
+				D353181F2BDFA8A900C13C46 /* input.txt */,
+				D353182D2BDFBFE600C13C46 /* src */,
+			);
+			path = "lab2-4";
+			sourceTree = "<group>";
+		};
+		D35318202BDFA9CD00C13C46 /* lex-analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				D35318212BDFAA8200C13C46 /* domain-tag.swift */,
+				D35318232BDFBF4500C13C46 /* token.swift */,
+				D35318252BDFBF5800C13C46 /* position.swift */,
+				D35318272BDFBF6500C13C46 /* fragment.swift */,
+				D35318292BDFBFA400C13C46 /* scanner.swift */,
+				D353182B2BDFBFAB00C13C46 /* compiler.swift */,
+			);
+			path = "lex-analyzer";
+			sourceTree = "<group>";
+		};
+		D353182D2BDFBFE600C13C46 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D353182E2BDFC03B00C13C46 /* extensions.swift */,
+				D35318302BE0FA3100C13C46 /* syntax-analyzer */,
+				D35318202BDFA9CD00C13C46 /* lex-analyzer */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		D35318302BE0FA3100C13C46 /* syntax-analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				D35318312BE0FCF200C13C46 /* parser.swift */,
+				D35318332BE0FDE300C13C46 /* grammar-elem.swift */,
+				D35318352BE0FDF500C13C46 /* non-term.swift */,
+				D35318372BE0FE0400C13C46 /* term.swift */,
+			);
+			path = "syntax-analyzer";
+			sourceTree = "<group>";
+		};
 		D39E97712BC95CD200FEADB2 /* predict-analyzer */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +352,7 @@
 				D33E1C182B96177F0054A741 /* lab1-3 */,
 				D32DBC2E2B9F4D6D00649C95 /* lab1-4 */,
 				D3264B202BC4414F00C9E001 /* lab2-3 */,
+				D35318182BDED00B00C13C46 /* lab2-4 */,
 				D3CF699B2BDE4DA500531887 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -305,7 +394,7 @@
 				D3CF699C2BDE4DA500531887 /* TreePrinter */,
 			);
 			productName = "lab2-3";
-			productReference = D3CF69992BDE4D6800531887 /* lab2-3 */;
+			productReference = D35318122BDECFEB00C13C46 /* lab2-3 */;
 			productType = "com.apple.product-type.tool";
 		};
 		D32DBC2C2B9F4D6D00649C95 /* lab1-4 */ = {
@@ -322,7 +411,7 @@
 			);
 			name = "lab1-4";
 			productName = "lab1-4";
-			productReference = D3CF69982BDE4D6800531887 /* lab1-4 */;
+			productReference = D35318112BDECFEB00C13C46 /* lab1-4 */;
 			productType = "com.apple.product-type.tool";
 		};
 		D33E1C162B96177F0054A741 /* lab1-3 */ = {
@@ -339,7 +428,7 @@
 			);
 			name = "lab1-3";
 			productName = "lab1-3";
-			productReference = D3CF69972BDE4D6800531887 /* lab1-3 */;
+			productReference = D35318102BDECFEB00C13C46 /* lab1-3 */;
 			productType = "com.apple.product-type.tool";
 		};
 		D345F87D2B8CDB42004CC315 /* lab1-2 */ = {
@@ -356,7 +445,24 @@
 			);
 			name = "lab1-2";
 			productName = "lab1-2";
-			productReference = D3CF69962BDE4D6800531887 /* lab1-2 */;
+			productReference = D353180F2BDECFEB00C13C46 /* lab1-2 */;
+			productType = "com.apple.product-type.tool";
+		};
+		D35318162BDED00B00C13C46 /* lab2-4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D353181B2BDED00B00C13C46 /* Build configuration list for PBXNativeTarget "lab2-4" */;
+			buildPhases = (
+				D35318132BDED00B00C13C46 /* Sources */,
+				D35318142BDED00B00C13C46 /* Frameworks */,
+				D35318152BDED00B00C13C46 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lab2-4";
+			productName = "lab2-4";
+			productReference = D35318172BDED00B00C13C46 /* lab2-4 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -381,6 +487,9 @@
 					D345F87D2B8CDB42004CC315 = {
 						CreatedOnToolsVersion = 15.2;
 					};
+					D35318162BDED00B00C13C46 = {
+						CreatedOnToolsVersion = 15.3;
+					};
 				};
 			};
 			buildConfigurationList = D3C3B5C62B853A900095E724 /* Build configuration list for PBXProject "compilers_swift" */;
@@ -403,6 +512,7 @@
 				D33E1C162B96177F0054A741 /* lab1-3 */,
 				D32DBC2C2B9F4D6D00649C95 /* lab1-4 */,
 				D3264B1E2BC4414F00C9E001 /* lab2-3 */,
+				D35318162BDED00B00C13C46 /* lab2-4 */,
 			);
 		};
 /* End PBXProject section */
@@ -469,6 +579,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				D345F8812B8CDB42004CC315 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D35318132BDED00B00C13C46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35318362BE0FDF500C13C46 /* non-term.swift in Sources */,
+				D35318382BE0FE0400C13C46 /* term.swift in Sources */,
+				D35318322BE0FCF200C13C46 /* parser.swift in Sources */,
+				D353182A2BDFBFA400C13C46 /* scanner.swift in Sources */,
+				D35318242BDFBF4500C13C46 /* token.swift in Sources */,
+				D35318222BDFAA8200C13C46 /* domain-tag.swift in Sources */,
+				D353182F2BDFC03B00C13C46 /* extensions.swift in Sources */,
+				D353182C2BDFBFAB00C13C46 /* compiler.swift in Sources */,
+				D35318342BE0FDE300C13C46 /* grammar-elem.swift in Sources */,
+				D35318262BDFBF5800C13C46 /* position.swift in Sources */,
+				D35318282BDFBF6500C13C46 /* fragment.swift in Sources */,
+				D353181A2BDED00B00C13C46 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,6 +1072,84 @@
 			};
 			name = Release;
 		};
+		D353181C2BDED00B00C13C46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = V57K6D8W6N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D353181D2BDED00B00C13C46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = V57K6D8W6N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		D3C3B5C72B853A900095E724 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1046,6 +1253,15 @@
 			buildConfigurations = (
 				D345F8832B8CDB42004CC315 /* Debug */,
 				D345F8842B8CDB42004CC315 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D353181B2BDED00B00C13C46 /* Build configuration list for PBXNativeTarget "lab2-4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D353181C2BDED00B00C13C46 /* Debug */,
+				D353181D2BDED00B00C13C46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

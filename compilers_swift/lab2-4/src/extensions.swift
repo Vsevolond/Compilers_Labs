@@ -72,6 +72,18 @@ extension Array {
         result.removeFirst()
         return result
     }
+    
+    func withInserting(at: Int, elem: Element) -> Array<Element> {
+        var result = self
+        result.insert(elem, at: 0)
+        return result
+    }
+    
+    func withAppending(_ sequence: Array<Element>) -> Array<Element> {
+        var result = self
+        result.append(contentsOf: sequence)
+        return result
+    }
 }
 
 extension Set {
@@ -81,6 +93,32 @@ extension Set {
         result.remove(elem)
         return result
     }
+}
+
+public protocol ReflectedStringConvertible : CustomStringConvertible { }
+
+extension ReflectedStringConvertible {
+  public var description: String {
+    let mirror = Mirror(reflecting: self)
+    
+    var str = "\(mirror.subjectType)("
+    var first = true
+    for (label, value) in mirror.children {
+      if let label = label {
+        if first {
+          first = false
+        } else {
+          str += ", "
+        }
+        str += label
+        str += ": "
+        str += "\(value)"
+      }
+    }
+    str += ")"
+    
+    return str
+  }
 }
 
 // MARK: - Constants

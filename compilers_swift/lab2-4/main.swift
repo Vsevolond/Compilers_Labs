@@ -1,4 +1,5 @@
 import Foundation
+import SwiftPrettyPrint
 
 let fileName = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/lab2-4/input.txt"
 
@@ -9,8 +10,8 @@ do {
     
     let parser = Parser(tokens: compiler.tokens)
     do {
-        try parser.parse()
-        print("success")
+        let program = try parser.parse()
+        Pretty.prettyPrint(program)
         
     } catch {
         if let error = error as? ParserError {

@@ -20,13 +20,13 @@ ParentType -> openbracket_sym Type closebracket_sym | .
 
 Statements -> Statement Statements | .
 
-Statement -> ident Equation semicolon_sym |
+Statement -> ident VarChain Equation semicolon_sym |
              new_kw openbracket_sym ident closebracket_sym semicolon_sym |
              if_kw Expr then_kw Statements else_kw Statements end_kw semicolon_sym |
              while_kw Expr do_kw Statements end_kw semicolon_sym .
 
 Equation -> VarEquation | PointerEquation .
-VarEquation -> VarChain varAssignment_op Expr .
+VarEquation -> varAssignment_op Expr .
 PointerEquation -> dereference_op varAssignment_op ident VarChain .
 
 Expr -> ArithmExpr CmpExpr .

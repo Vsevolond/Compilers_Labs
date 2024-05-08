@@ -6,7 +6,7 @@ final class Term: GrammarElem {
     
     override var isTerm: Bool { true }
     
-    static let end: Term = .init(domain: .endOfGrammar)
+    static let end: Term = .init(domain: .endOfInput)
     
     init(domain: DomainTag) {
         self.domain = domain

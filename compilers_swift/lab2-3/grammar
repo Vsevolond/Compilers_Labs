@@ -2,41 +2,18 @@ Grammar -> Rules AxiomeRule Rules .
 
 Rules -> Rule Rules | .
 AxiomeRule -> star Rule .
-Rule -> NonTerm Group Groups .
+Rule -> ident Group Groups .
 
 Groups -> Group Groups | .
 Group -> openbracket Sequence closebracket .
 
 Sequence -> Element Sequence | .
-
-Element -> Term | NonTerm .
-
-Term -> quote Symbol quote .
-NonTerm -> ident Mark .
-
-Symbol -> plus | star | openbracket | closebracket | char .
-Mark -> mark | .
+Element -> ident | char .
 
 
 Domains:
 - star = *
-- plus = +
-- mark = '
 - openBracket = (
 - closeBracket = )
-- quote = "
-- char = a...z
-- ident = A...Z
-
-Grammar     FIRST = [star, ident]                                  FOLLOW = [$]
-Rules       FIRST = [ident, ε]                                     FOLLOW = [star, $]
-AxiomeRule  FIRST = [star]                                         FOLLOW = [ident, $]
-Rule        FIRST = [ident]                                        FOLLOW = [star, ident, $]
-Groups      FIRST = [openBracket, ε]                               FOLLOW = [star, ident, $]
-Group       FIRST = [openBracket]                                  FOLLOW = [star, openBracket, ident, $]
-Sequence    FIRST = [quote, ident, ε]                              FOLLOW = [closeBracket]
-Element     FIRST = [quote, ident]                                 FOLLOW = [closeBracket, quote, ident]
-Term        FIRST = [quote]                                        FOLLOW = [closeBracket, quote, ident]
-NonTerm     FIRST = [ident]                                        FOLLOW = [openbracket, closebracket, quote, ident]
-Symbol      FIRST = [star, openbracket, closebracket, plus, char]  FOLLOW = [quote]
-Mark        FIRST = [mark, ε]                                      FOLLOW = [openbracket, closebracket, quote, ident]
+- char = ".*"
+- ident = [A...Z][a...zA...Z]*

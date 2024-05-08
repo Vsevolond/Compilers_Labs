@@ -7,6 +7,8 @@ class Scanner {
     private var currentChar: Character = .empty
     private var currentPos: Position = .init(line: 1, col: 0)
     
+    private var needToUpdate: Bool = true
+    
     init(fileName: String) throws {
         guard let fileHandle = FileHandle(forReadingAtPath: fileName) else {
             throw CompilerError.cannotOpenFile
@@ -15,38 +17,77 @@ class Scanner {
         self.handle = fileHandle
     }
     
-    func nextToken() -> Token {
-        updateCurrent()
+    func nextToken() throws -> Token {
+        if needToUpdate { updateCurrent() } else { needToUpdate = true }
+        skipEmpty()
         
         switch currentChar {
             
         case "*": return .init(tag: .star, value: "*", coord: .init(pos: currentPos))
-        case "+": return .init(tag: .plus, value: "+", coord: .init(pos: currentPos))
-        case "'": return .init(tag: .mark, value: "'", coord: .init(pos: currentPos))
         case "(": return .init(tag: .openBracket, value: "(", coord: .init(pos: currentPos))
         case ")": return .init(tag: .closeBracket, value: ")", coord: .init(pos: currentPos))
-        case "\"": return .init(tag: .quote, value: "\"", coord: .init(pos: currentPos))
+            
         default:
-            if currentChar.isLetter, currentChar.isUppercase {
-                return .init(tag: .ident, value: currentChar, coord: .init(pos: currentPos))
+            
+            if currentChar == "\"" {
+                let startPos = currentPos
+                var char = ""
                 
-            } else if currentChar.isLetter, currentChar.isLowercase {
-                return .init(tag: .char, value: currentChar, coord: .init(pos: currentPos))
+                updateCurrent()
+                
+                while currentChar != .empty, currentChar != "\"" {
+                    char.append(currentChar)
+                    updateCurrent()
+                }
+                
+                guard currentChar != .empty else {
+                    throw CompilerError.unexpected(coord: .init(start: startPos, end: currentPos))
+                }
+                
+                return .init(tag: .char, value: char, coord: .init(start: startPos, end: currentPos))
+                
+            } else if currentChar.isLetter, currentChar.isUppercase {
+                let startPos = currentPos
+                var ident = ""
+                
+                while currentChar != .empty, currentChar.isLetter {
+                    ident.append(currentChar)
+                    updateCurrent()
+                }
+                
+                needToUpdate = false
+                
+                guard currentChar != .empty else {
+                    return .init(tag: .ident, value: ident, coord: .init(start: startPos, end: currentPos))
+                }
+                
+                if currentChar == "'" {
+                    ident.append(currentChar)
+                    updateCurrent()
+                    
+                    return .init(tag: .ident, value: ident, coord: .init(start: startPos, end: currentPos))
+                    
+                } else {
+                    return .init(tag: .ident, value: ident, coord: .init(start: startPos, end: currentPos))
+                }
                 
             } else if currentChar == .empty {
-                return .init(tag: .endOfGrammar, value: currentChar, coord: .init(pos: currentPos))
-                
-            } else if currentChar.isWhiteSpaceOrNewLine {
-                return nextToken()
+                return .init(tag: .endOfInput, value: "\(currentChar)", coord: .init(pos: currentPos))
                 
             } else {
-                return .init(tag: .unrecognized, value: currentChar, coord: .init(pos: currentPos))
+                throw CompilerError.unexpected(coord: .init(pos: currentPos))
             }
         }
     }
     
     func end() {
         handle.closeFile()
+    }
+    
+    private func skipEmpty() {
+        while currentChar != .empty, currentChar.isWhiteSpaceOrNewLine {
+            updateCurrent()
+        }
     }
     
     private func updateCurrent() {

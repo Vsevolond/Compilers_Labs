@@ -2,7 +2,7 @@ import Foundation
 
 enum ParseError: Error {
     
-    case invalid(expected: [String], given: Character, coord: Fragment)
+    case invalid(expected: [String], given: String, coord: Fragment)
 }
 
 final class Parser {

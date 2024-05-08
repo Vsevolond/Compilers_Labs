@@ -4,6 +4,7 @@ enum CompilerError: Error {
     
     case cannotOpenFile
     case cannotReadFile
+    case unexpected(coord: Fragment)
 }
 
 class Compiler {
@@ -17,19 +18,20 @@ class Compiler {
         tokens = []
     }
     
-    func compile() {
-        var token = scanner.nextToken()
+    func compile() throws {
+        var token = try scanner.nextToken()
         
         while !token.isEnd {
             guard !token.isUnrecognized else {
                 print("unrecognized token: \(token.value)")
-                token = scanner.nextToken()
+                
+                token = try scanner.nextToken()
                 continue
             }
             
             tokens.append(token)
             
-            token = scanner.nextToken()
+            token = try scanner.nextToken()
         }
         
         tokens.append(token)

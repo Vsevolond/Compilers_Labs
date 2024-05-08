@@ -3,7 +3,6 @@ import Foundation
 enum DomainTag: String, Hashable {
     
     case star
-    case mark
     case openBracket
     case closeBracket
     case ident
@@ -14,7 +13,6 @@ enum DomainTag: String, Hashable {
     var value: String {
         switch self {
         case .star: "*"
-        case .mark: "'"
         case .openBracket: "("
         case .closeBracket: ")"
         case .ident: "ident"

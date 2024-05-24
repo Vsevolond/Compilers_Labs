@@ -1,0 +1,42 @@
+Program -> TYPE_KW TypeDefs VAR_KW VarDefs BEGIN_KW Statements END_KW DOT_SYM
+
+VarDefs -> VarsDef SEMICOLON_SYM VarDefs | ε
+
+VarsDef -> VarNames COLON_SYM VarType
+
+VarNames -> IDENT | IDENT COMMA_SYM VarNames
+
+VarChain -> IDENT | IDENT DOT_SYM VarChain
+
+VarType -> Type | POINTER_KW TO_KW Type
+
+Type -> INTEGER_TYPE | REAL_TYPE | BOOLEAN_TYPE | LOCAL_TYPE
+
+TypeDefs -> TypeDef SEMICOLON_SYM TypeDefs | ε
+
+TypeDef -> TypeCommonDef | TypeExtendDef
+
+TypeCommonDef -> LOCAL_TYPE TYPE_ASSIGNMENT_OP RECORD_KW VarDefs END_KW
+
+TypeExtendDef -> LOCAL_TYPE TYPE_ASSIGNMENT_OP RECORD OPEN_BRACKET_SYM Type CLOSE_BRACKET_SYM VarDefs END_KW
+
+Statements -> Statement SEMICOLON_SYM | Statement SEMICOLON_SYM Statements
+Statement -> VarChain VAR_ASSIGNMENT_OP Expr
+	   | VarChain DEREFERENCE_OP VAR_ASSIGNMENT_OP Expr
+	   | NEW_KW OPEN_BRACKET_SYM VarChain CLOSE_BRACKET_SYM
+	   | IF_KW Expr THEN_KW Statements ELSE_KW Statements END_KW
+	   | WHILE_KW Expr DO_KW Statements END_KW
+
+Expr -> ArithmExpr
+      | ArithmExpr CmpOp ArithmExpr
+CmpOp -> LESS_OP | GREATER_OP | LESS_OR_EQUAL_OP | GREATER_OR_EQUAL_OP | NOT_EQUAL_OP | EQUAL_OP
+
+ArithmExpr -> Term | ArithmExpr AddOp Term
+AddOp -> ADDITION_OP | SUBSTRACTION_OP | OR_OP
+
+Term -> Factor | Term MulOp Factor
+MulOp -> MULTIPLICATION_OP | DIVISION_OP | DIV_OP | MOD_OP | AND_OP
+
+Factor -> NOT_OP Factor | Const | VarChain | OPEN_BRACKET_SYM Expr CLOSE_BRACKET_SYM
+
+Const -> INT_CONST | REAL_CONST | BOOLEAN_CONST

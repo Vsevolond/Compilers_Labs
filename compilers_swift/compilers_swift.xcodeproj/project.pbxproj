@@ -29,6 +29,18 @@
 		D33E1C302B961D570054A741 /* compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33E1C2F2B961D570054A741 /* compiler.swift */; };
 		D33E1C362B9871E70054A741 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33E1C352B9871E70054A741 /* extensions.swift */; };
 		D345F8812B8CDB42004CC315 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D345F8802B8CDB42004CC315 /* main.swift */; };
+		D3465F852C03754700D50760 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F842C03754700D50760 /* main.swift */; };
+		D3465F8B2C0375EC00D50760 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F8A2C0375EC00D50760 /* extensions.swift */; };
+		D3465F8E2C03761100D50760 /* domain-tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F8D2C03761100D50760 /* domain-tag.swift */; };
+		D3465F902C03761F00D50760 /* token.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F8F2C03761F00D50760 /* token.swift */; };
+		D3465F922C03762C00D50760 /* position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F912C03762C00D50760 /* position.swift */; };
+		D3465F942C03763900D50760 /* fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F932C03763900D50760 /* fragment.swift */; };
+		D3465F962C03764600D50760 /* scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F952C03764600D50760 /* scanner.swift */; };
+		D3465F982C03764E00D50760 /* compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F972C03764E00D50760 /* compiler.swift */; };
+		D3465F9B2C03766700D50760 /* parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F9A2C03766700D50760 /* parser.swift */; };
+		D3465F9D2C03767200D50760 /* term.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F9C2C03767200D50760 /* term.swift */; };
+		D3465F9F2C03767E00D50760 /* data-types.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465F9E2C03767E00D50760 /* data-types.swift */; };
+		D3465FA22C03894700D50760 /* semantic-error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3465FA12C03894700D50760 /* semantic-error.swift */; };
 		D353181A2BDED00B00C13C46 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318192BDED00B00C13C46 /* main.swift */; };
 		D35318222BDFAA8200C13C46 /* domain-tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318212BDFAA8200C13C46 /* domain-tag.swift */; };
 		D35318242BDFBF4500C13C46 /* token.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35318232BDFBF4500C13C46 /* token.swift */; };
@@ -95,6 +107,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		D3465F802C03754700D50760 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		D35318152BDED00B00C13C46 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,6 +153,20 @@
 		D33E1C352B9871E70054A741 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D345F8802B8CDB42004CC315 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D345F8852B8CDCC2004CC315 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
+		D3465F822C03754700D50760 /* lab3-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab3-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab3-3"; sourceTree = "<absolute>"; };
+		D3465F842C03754700D50760 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D3465F8A2C0375EC00D50760 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		D3465F8D2C03761100D50760 /* domain-tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "domain-tag.swift"; sourceTree = "<group>"; };
+		D3465F8F2C03761F00D50760 /* token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = token.swift; sourceTree = "<group>"; };
+		D3465F912C03762C00D50760 /* position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = position.swift; sourceTree = "<group>"; };
+		D3465F932C03763900D50760 /* fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fragment.swift; sourceTree = "<group>"; };
+		D3465F952C03764600D50760 /* scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanner.swift; sourceTree = "<group>"; };
+		D3465F972C03764E00D50760 /* compiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compiler.swift; sourceTree = "<group>"; };
+		D3465F9A2C03766700D50760 /* parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parser.swift; sourceTree = "<group>"; };
+		D3465F9C2C03767200D50760 /* term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = term.swift; sourceTree = "<group>"; };
+		D3465F9E2C03767E00D50760 /* data-types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "data-types.swift"; sourceTree = "<group>"; };
+		D3465FA12C03894700D50760 /* semantic-error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "semantic-error.swift"; sourceTree = "<group>"; };
+		D3465FA32C03DDBB00D50760 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
 		D35318192BDED00B00C13C46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D353181E2BDEEF0400C13C46 /* grammar */ = {isa = PBXFileReference; lastKnownFileType = text; path = grammar; sourceTree = "<group>"; };
 		D353181F2BDFA8A900C13C46 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
@@ -144,11 +179,11 @@
 		D353182E2BDFC03B00C13C46 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D35318312BE0FCF200C13C46 /* parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parser.swift; sourceTree = "<group>"; };
 		D35318372BE0FE0400C13C46 /* term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = term.swift; sourceTree = "<group>"; };
-		D37C7D712BEB99FB00E6599A /* lab1-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab1-2"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D37C7D722BEB99FB00E6599A /* lab1-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab1-3"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D37C7D732BEB99FB00E6599A /* lab1-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab1-4"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D37C7D742BEB99FB00E6599A /* lab2-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab2-3"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D37C7D752BEB99FB00E6599A /* lab2-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab2-4"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D37C7D712BEB99FB00E6599A /* lab1-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-2"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-2"; sourceTree = "<absolute>"; };
+		D37C7D722BEB99FB00E6599A /* lab1-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-3"; sourceTree = "<absolute>"; };
+		D37C7D732BEB99FB00E6599A /* lab1-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab1-4"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab1-4"; sourceTree = "<absolute>"; };
+		D37C7D742BEB99FB00E6599A /* lab2-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab2-3"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab2-3"; sourceTree = "<absolute>"; };
+		D37C7D752BEB99FB00E6599A /* lab2-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "lab2-4"; path = "/Users/vsevolond/UNIVERSITY/Compilers_Labs/compilers_swift/build/Debug/lab2-4"; sourceTree = "<absolute>"; };
 		D39E97702BC9537600FEADB2 /* grammar */ = {isa = PBXFileReference; lastKnownFileType = text; path = grammar; sourceTree = "<group>"; };
 		D39E97722BC9636400FEADB2 /* fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fragment.swift; sourceTree = "<group>"; };
 		D39E97742BC9637B00FEADB2 /* position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = position.swift; sourceTree = "<group>"; };
@@ -192,6 +227,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D345F87B2B8CDB42004CC315 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3465F7F2C03754700D50760 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -275,6 +317,58 @@
 			path = "lab1-2";
 			sourceTree = "<group>";
 		};
+		D3465F832C03754700D50760 /* lab3-3 */ = {
+			isa = PBXGroup;
+			children = (
+				D3465FA32C03DDBB00D50760 /* input.txt */,
+				D3465F842C03754700D50760 /* main.swift */,
+				D3465F892C03756800D50760 /* src */,
+			);
+			path = "lab3-3";
+			sourceTree = "<group>";
+		};
+		D3465F892C03756800D50760 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D3465F8A2C0375EC00D50760 /* extensions.swift */,
+				D3465FA02C0379A800D50760 /* semantic-analyzer */,
+				D3465F992C03765A00D50760 /* syntax-analyzer */,
+				D3465F8C2C0375FB00D50760 /* lex-analyzer */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		D3465F8C2C0375FB00D50760 /* lex-analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				D3465F8D2C03761100D50760 /* domain-tag.swift */,
+				D3465F8F2C03761F00D50760 /* token.swift */,
+				D3465F912C03762C00D50760 /* position.swift */,
+				D3465F932C03763900D50760 /* fragment.swift */,
+				D3465F952C03764600D50760 /* scanner.swift */,
+				D3465F972C03764E00D50760 /* compiler.swift */,
+			);
+			path = "lex-analyzer";
+			sourceTree = "<group>";
+		};
+		D3465F992C03765A00D50760 /* syntax-analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				D3465F9A2C03766700D50760 /* parser.swift */,
+				D3465F9C2C03767200D50760 /* term.swift */,
+				D3465F9E2C03767E00D50760 /* data-types.swift */,
+			);
+			path = "syntax-analyzer";
+			sourceTree = "<group>";
+		};
+		D3465FA02C0379A800D50760 /* semantic-analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				D3465FA12C03894700D50760 /* semantic-error.swift */,
+			);
+			path = "semantic-analyzer";
+			sourceTree = "<group>";
+		};
 		D35318182BDED00B00C13C46 /* lab2-4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,12 +446,8 @@
 				D32DBC2E2B9F4D6D00649C95 /* lab1-4 */,
 				D3264B202BC4414F00C9E001 /* lab2-3 */,
 				D35318182BDED00B00C13C46 /* lab2-4 */,
+				D3465F832C03754700D50760 /* lab3-3 */,
 				D3CF699B2BDE4DA500531887 /* Frameworks */,
-				D37C7D712BEB99FB00E6599A /* lab1-2 */,
-				D37C7D722BEB99FB00E6599A /* lab1-3 */,
-				D37C7D732BEB99FB00E6599A /* lab1-4 */,
-				D37C7D742BEB99FB00E6599A /* lab2-3 */,
-				D37C7D752BEB99FB00E6599A /* lab2-4 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -452,6 +542,23 @@
 			productReference = D37C7D712BEB99FB00E6599A /* lab1-2 */;
 			productType = "com.apple.product-type.tool";
 		};
+		D3465F812C03754700D50760 /* lab3-3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3465F862C03754700D50760 /* Build configuration list for PBXNativeTarget "lab3-3" */;
+			buildPhases = (
+				D3465F7E2C03754700D50760 /* Sources */,
+				D3465F7F2C03754700D50760 /* Frameworks */,
+				D3465F802C03754700D50760 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lab3-3";
+			productName = "lab3-3";
+			productReference = D3465F822C03754700D50760 /* lab3-3 */;
+			productType = "com.apple.product-type.tool";
+		};
 		D35318162BDED00B00C13C46 /* lab2-4 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D353181B2BDED00B00C13C46 /* Build configuration list for PBXNativeTarget "lab2-4" */;
@@ -479,7 +586,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					D3264B1E2BC4414F00C9E001 = {
@@ -493,6 +600,9 @@
 					};
 					D345F87D2B8CDB42004CC315 = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					D3465F812C03754700D50760 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 					D35318162BDED00B00C13C46 = {
 						CreatedOnToolsVersion = 15.3;
@@ -521,6 +631,7 @@
 				D32DBC2C2B9F4D6D00649C95 /* lab1-4 */,
 				D3264B1E2BC4414F00C9E001 /* lab2-3 */,
 				D35318162BDED00B00C13C46 /* lab2-4 */,
+				D3465F812C03754700D50760 /* lab3-3 */,
 			);
 		};
 /* End PBXProject section */
@@ -587,6 +698,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				D345F8812B8CDB42004CC315 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3465F7E2C03754700D50760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3465F9B2C03766700D50760 /* parser.swift in Sources */,
+				D3465F852C03754700D50760 /* main.swift in Sources */,
+				D3465F8B2C0375EC00D50760 /* extensions.swift in Sources */,
+				D3465F9D2C03767200D50760 /* term.swift in Sources */,
+				D3465F8E2C03761100D50760 /* domain-tag.swift in Sources */,
+				D3465F9F2C03767E00D50760 /* data-types.swift in Sources */,
+				D3465FA22C03894700D50760 /* semantic-error.swift in Sources */,
+				D3465F922C03762C00D50760 /* position.swift in Sources */,
+				D3465F982C03764E00D50760 /* compiler.swift in Sources */,
+				D3465F902C03761F00D50760 /* token.swift in Sources */,
+				D3465F942C03763900D50760 /* fragment.swift in Sources */,
+				D3465F962C03764600D50760 /* scanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,6 +1209,84 @@
 			};
 			name = Release;
 		};
+		D3465F872C03754700D50760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = V57K6D8W6N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D3465F882C03754700D50760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = V57K6D8W6N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		D353181C2BDED00B00C13C46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1260,6 +1468,15 @@
 			buildConfigurations = (
 				D345F8832B8CDB42004CC315 /* Debug */,
 				D345F8842B8CDB42004CC315 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3465F862C03754700D50760 /* Build configuration list for PBXNativeTarget "lab3-3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3465F872C03754700D50760 /* Debug */,
+				D3465F882C03754700D50760 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

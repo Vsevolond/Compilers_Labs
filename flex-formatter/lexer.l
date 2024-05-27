@@ -32,7 +32,7 @@
     yylloc->last_column = extra->cur_column; \
   }
 
-void yyerror(YYLTYPE *loc, yyscan_t scanner, long env[26], const char *message) {
+void yyerror(YYLTYPE *loc, yyscan_t scanner, long level, const char *message) {
     printf("Error (%d,%d): %s\n", loc->first_line, loc->first_column, message);
 }
 

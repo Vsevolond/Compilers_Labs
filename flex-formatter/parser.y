@@ -7,20 +7,8 @@
 
 #define INDENT_SIZE 2
 
-int indent_level = 0;
-
-void increase_indent() {
-    indent_level++;
-}
-
-void decrease_indent() {
-    if (indent_level > 0) {
-        indent_level--;
-    }
-}
-
-char* get_indent() {
-    int total_spaces = indent_level * INDENT_SIZE;
+char* get_indent(long level) {
+    long total_spaces = level * INDENT_SIZE;
     char* indent_str = (char*)malloc((total_spaces + 1) * sizeof(char));
     memset(indent_str, ' ', total_spaces);
     indent_str[total_spaces] = '\0';
@@ -33,7 +21,7 @@ char* get_indent() {
 %locations
 %lex-param {yyscan_t scanner}
 %parse-param {yyscan_t scanner}
-%parse-param {long env[26]}
+%parse-param {long level}
 
 %union {
     char* ident;
@@ -66,36 +54,48 @@ char* get_indent() {
 
 %{
 int yylex(YYSTYPE *yylval_param, YYLTYPE *yylloc_param, yyscan_t scanner);
-void yyerror(YYLTYPE *loc, yyscan_t scanner, long env[26], const char *message);
+void yyerror(YYLTYPE *loc, yyscan_t scanner, long level, const char *message);
 %}
 
 %%
 
 program: 
-    TYPE_KW { increase_indent(); } typeDefs VAR_KW varDefs BEGIN_KW statements { decrease_indent(); }END_KW DOT_SYM {
+    TYPE_KW { level++; } typeDefs VAR_KW varDefs BEGIN_KW statements { level--; }END_KW DOT_SYM {
       printf("TYPE\n%s\nVAR\n%s\nBEGIN\n%s\nEND.\n", $3, $5, $7);
+      free($3);
+      free($5);
+      free($7);
     };
 
 typeDefs: 
     typeDef SEMICOLON_SYM {
       asprintf(&$$, "%s", $1); 
+      free($1);
     }
     | typeDef SEMICOLON_SYM typeDefs {
       asprintf(&$$, "%s\n%s", $1, $3); 
+      free($1);
+      free($3);
     };
 
 varDefs: 
     varsDef SEMICOLON_SYM { 
       asprintf(&$$, "%s", $1); 
+      free($1);
     }
     | varsDef SEMICOLON_SYM varDefs { 
-      asprintf(&$$, "%s\n%s", $1, $3); 
+      asprintf(&$$, "%s\n%s", $1, $3);
+      free($1);
+      free($3);
     };
 
 varsDef: 
     varNames COLON_SYM varType { 
-      char* indent = get_indent();
-      asprintf(&$$, "%s%s : %s;", indent, $1, $3); 
+      char* indent = get_indent(level);
+      asprintf(&$$, "%s%s : %s;", indent, $1, $3);
+      free(indent);
+      free($1);
+      free($3);
     };
 
 varNames: 
@@ -104,6 +104,7 @@ varNames:
     }
     | IDENT COMMA_SYM varNames { 
       asprintf(&$$, "%s, %s", $1, $3); 
+      free($3);
     };
 
 varChain: 
@@ -111,12 +112,13 @@ varChain:
       asprintf(&$$, "%s", $1); 
     }
     | IDENT DOT_SYM varChain { 
-      asprintf(&$$, "%s.%s", $1, $3); 
+      asprintf(&$$, "%s.%s", $1, $3);
+      free($3);
     };
 
 varType: 
     type { 
-      asprintf(&$$, "%s", $1); 
+      asprintf(&$$, "%s", $1);
     }
     | POINTER_KW TO_KW type { 
       asprintf(&$$, "POINTER TO %s", $3); 
@@ -139,55 +141,81 @@ type:
 typeDef: typeCommonDef | typeExtendDef;
 
 typeCommonDef: 
-    LOCAL_TYPE TYPE_ASSIGNMENT_OP RECORD_KW { increase_indent(); } varDefs { decrease_indent(); } END_KW {
-      char* indent = get_indent();
+    LOCAL_TYPE TYPE_ASSIGNMENT_OP RECORD_KW { level++; } varDefs { level--; } END_KW {
+      char* indent = get_indent(level);
       asprintf(&$$, "%s%s = RECORD\n%s\n%sEND;", indent, $1, $5, indent);
+      free(indent);
+      free($1);
+      free($5);
     };
 
 typeExtendDef: 
-    LOCAL_TYPE TYPE_ASSIGNMENT_OP RECORD_KW OPEN_BRACKET_SYM type CLOSE_BRACKET_SYM { increase_indent(); } varDefs { decrease_indent(); } END_KW {
-      char* indent = get_indent();
+    LOCAL_TYPE TYPE_ASSIGNMENT_OP RECORD_KW OPEN_BRACKET_SYM type CLOSE_BRACKET_SYM { level++; } varDefs { level--; } END_KW {
+      char* indent = get_indent(level);
       asprintf(&$$, "%s%s = RECORD(%s)\n%s\n%sEND;", indent, $1, $5, $8, indent);
+      free(indent);
+      free($1);
+      free($5);
+      free($8);
     };
 
 statements: 
     statement SEMICOLON_SYM {
-      asprintf(&$$, "%s;", $1); 
+      asprintf(&$$, "%s;", $1);
+      free($1);
     }
     | statement SEMICOLON_SYM statements { 
       asprintf(&$$, "%s;\n%s", $1, $3); 
+      free($1);
+      free($3);
     };
 
 statement: 
     varChain VAR_ASSIGNMENT_OP expr {
-      char* indent = get_indent();
-      asprintf(&$$, "%s%s := %s", indent, $1, $3); 
+      char* indent = get_indent(level);
+      asprintf(&$$, "%s%s := %s", indent, $1, $3);
+      free(indent);
+      free($1);
+      free($3);
     }
     | varChain DEREFERENCE_OP VAR_ASSIGNMENT_OP expr {
-      char* indent = get_indent(); 
+      char* indent = get_indent(level); 
       asprintf(&$$, "%s%s^ := %s", indent, $1, $4); 
+      free(indent);
+      free($1);
+      free($4);
     }
     | NEW_KW OPEN_BRACKET_SYM varChain CLOSE_BRACKET_SYM {
-      char* indent = get_indent();
+      char* indent = get_indent(level);
       asprintf(&$$, "%sNEW(%s)", indent, $3); 
+      free(indent);
+      free($3);
     }
-    | IF_KW expr THEN_KW { increase_indent(); } statements ELSE_KW statements { decrease_indent(); } END_KW {
-      char* indent = get_indent();
+    | IF_KW expr THEN_KW { level++; } statements ELSE_KW statements { level--; } END_KW {
+      char* indent = get_indent(level);
       asprintf(&$$, "%sIF %s THEN\n%s\n%sELSE\n%s\n%sEND", indent, $2, $5, indent, $7, indent);
+      free(indent);
+      free($2);
+      free($5);
+      free($7);
     }
-    | WHILE_KW expr DO_KW { increase_indent(); } statements { decrease_indent(); } END_KW {
-      char* indent = get_indent();
-      increase_indent();
+    | WHILE_KW expr DO_KW { level++; } statements { level--; } END_KW {
+      char* indent = get_indent(level);
       asprintf(&$$, "%sWHILE %s DO\n%s\n%sEND", indent, $2, $5, indent);
-      decrease_indent();
+      free(indent);
+      free($2);
+      free($5);
     };
 
 expr: 
     arithmExpr { 
-      asprintf(&$$, "%s", $1); 
+      asprintf(&$$, "%s", $1);
+      free($1);
     }
     | arithmExpr cmpOp arithmExpr { 
       asprintf(&$$, "%s %s %s", $1, $2, $3);
+      free($1);
+      free($3);
     };
 
 cmpOp: 
@@ -200,10 +228,13 @@ cmpOp:
 
 arithmExpr: 
     term { 
-      asprintf(&$$, "%s", $1); 
+      asprintf(&$$, "%s", $1);
+      free($1);
     }
     | arithmExpr addOp term { 
       asprintf(&$$, "%s %s %s", $1, $2, $3);
+      free($1);
+      free($3);
     };
 
 addOp: 
@@ -214,9 +245,12 @@ addOp:
 term: 
     factor { 
       asprintf(&$$, "%s", $1);
+      free($1);
     }
     | term mulOp factor { 
       asprintf(&$$, "%s %s %s", $1, $2, $3);
+      free($1);
+      free($3);
     };
 
 mulOp: 
@@ -229,15 +263,18 @@ mulOp:
 factor: 
     NOT_OP factor { 
       asprintf(&$$, "NOT %s", $2); 
+      free($2);
     }
     | const { 
       asprintf(&$$, "%s", $1); 
     }
     | varChain { 
       asprintf(&$$, "%s", $1); 
+      free($1);
     }
     | OPEN_BRACKET_SYM expr CLOSE_BRACKET_SYM { 
       asprintf(&$$, "(%s)", $2);
+      free($2);
     };
 
 const: 
@@ -249,7 +286,6 @@ const:
 
 int main(int argc, char *argv[]) {
     FILE *input = 0;
-    long env[26] = { 0 };
     yyscan_t scanner;
     struct Extra extra;
     if (argc > 1) {
@@ -261,7 +297,7 @@ int main(int argc, char *argv[]) {
     }
 
     init_scanner(input, &scanner, &extra);
-    yyparse(scanner, env);
+    yyparse(scanner, 0);
     destroy_scanner(scanner);
 
     if (input != stdin) {

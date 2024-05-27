@@ -27,7 +27,7 @@ Statement -> ident VarChain Equation semicolon_sym |
 
 Equation -> VarEquation | PointerEquation .
 VarEquation -> varAssignment_op Expr .
-PointerEquation -> dereference_op varAssignment_op ident VarChain .
+PointerEquation -> dereference_op varAssignment_op Expr .
 
 Expr -> ArithmExpr CmpExpr .
 CmpExpr -> CmpOp ArithmExpr | .
